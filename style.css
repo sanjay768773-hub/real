@@ -304,3 +304,31 @@ canvas {
     bottom: auto;
   }
 }
+@media (max-width: 500px) {
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .top-left {
+    top: 15px;
+    left: 15px;
+  }
+
+  .top-right {
+    top: 15px;
+    right: 15px;
+  }
+
+  .nitro-box {
+    width: 110px;
+  }
+
+  .stat strong {
+    font-size: 23px;
+  }
+
+  #mobile-controls {
+    bottom: 15px;
+  }
+}
