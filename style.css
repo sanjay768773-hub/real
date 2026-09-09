@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #02040a;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  touch-action: none;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* HUD */
+
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.top-left {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.brand {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(255,255,255,.6);
+}
+
+.stat {
+  margin-bottom: 10px;
+}
+
+.stat span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  opacity: .7;
+}
+
+.stat strong {
+  font-size: 30px;
+  font-style: italic;
+}
+
+.stat small {
+  font-size: 10px;
+  margin-left: 5px;
+  opacity: .7;
+}
+
+.top-right {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  text-align: right;
+}
+
+.nitro-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+
+.nitro-box {
+  width: 170px;
+  height: 12px;
+  border: 2px solid white;
+  transform: skew(-15deg);
+  overflow: hidden;
+}
+
+#nitro-bar {
+  width: 100%;
+  height: 100%;
+  background: #18d9ff;
+  box-shadow: 0 0 15px #18d9ff;
+}
+
+.lives {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* Screens */
+
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(20, 50, 80, .4),
+      rgba(0, 0, 0, .92)
+    );
+
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.title {
+  font-size: clamp(55px, 12vw, 120px);
+  font-weight: 1000;
+  font-style: italic;
+  line-height: .8;
+  letter-spacing: -5px;
+  text-shadow:
+    0 0 20px rgba(255,255,255,.3),
+    8px 8px 0 rgba(0,0,0,.7);
+}
+
+.rush {
+  color: #00d9ff;
+  text-shadow:
+    0 0 25px #00d9ff,
+    8px 8px 0 rgba(0,0,0,.7);
+}
+
+.screen p {
+  letter-spacing: 8px;
+  opacity: .7;
+  margin: 30px 0;
+}
+
+.screen button {
+  border: 0;
+  padding: 17px 45px;
+
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  color: white;
+  background: #08bfe8;
+
+  cursor: pointer;
+
+  transform: skew(-12deg);
+
+  box-shadow:
+    0 0 25px rgba(0,200,255,.45);
+}
+
+.screen button:hover {
+  background: #19d9ff;
+}
+
+.instructions {
+  margin-top: 25px;
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: .55;
+}
+
+/* Game Over */
+
+.gameover-title,
+.pause-title {
+  font-size: clamp(50px, 10vw, 100px);
+  font-weight: 1000;
+  font-style: italic;
+  text-shadow: 0 0 25px rgba(255,255,255,.4);
+}
+
+.final-score {
+  margin: 30px;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.final-score strong {
+  display: block;
+  font-size: 55px;
+  letter-spacing: 0;
+  margin: 10px;
+}
+
+/* Mobile controls */
+
+#mobile-controls {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+
+  z-index: 20;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 18px;
+
+  pointer-events: none;
+}
+
+.control,
+.nitro {
+  pointer-events: auto;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(255,255,255,.5);
+
+  background: rgba(0,0,0,.4);
+
+  color: white;
+
+  font-weight: 900;
+  font-size: 22px;
+
+  backdrop-filter: blur(5px);
+}
+
+.control.small {
+  width: 62px;
+  height: 62px;
+  font-size: 10px;
+}
+
+.nitro {
+  width: 75px;
+  height: 75px;
+
+  background: rgba(0,180,255,.25);
+
+  border-color: #00d9ff;
+
+  color: #00d9ff;
+
+  box-shadow: 0 0 20px rgba(0,200,255,.35);
+}
+
+.control:active,
+.nitro:active {
+  transform: scale(.9);
+}
+
+#pause-button {
+  position: fixed;
+  right: 20px;
+  bottom: 110px;
+
+  z-index: 25;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.4);
+
+  background: rgba(0,0,0,.4);
+
+  color: white;
+
+  font-size: 20px;
+}
+
+@media (min-width: 800px) {
+  #mobile-controls {
+    display: none;
+  }
+
+  #pause-button {
+    top: 25px;
+    bottom: auto;
+  }
+}
