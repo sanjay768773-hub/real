@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Street Rush 3D</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <div id="game"></div>
+
+  <!-- HUD -->
+  <div id="hud">
+
+    <div class="top-left">
+      <div class="brand">STREET RUSH</div>
+
+      <div class="stat">
+        <span>SPEED</span>
+        <strong id="speed">0</strong>
+        <small>KM/H</small>
+      </div>
+
+      <div class="stat">
+        <span>DISTANCE</span>
+        <strong id="distance">0</strong>
+        <small>M</small>
+      </div>
+    </div>
+
+    <div class="top-right">
+      <div class="nitro-label">NITRO</div>
+      <div class="nitro-box">
+        <div id="nitro-bar"></div>
+      </div>
+
+      <div class="lives">
+        ❤️ <span id="lives">3</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Start Screen -->
+  <div id="start-screen" class="screen">
+
+    <div class="title">
+      <div>STREET</div>
+      <div class="rush">RUSH</div>
+    </div>
+
+    <p>3D HIGHWAY RACER</p>
+
+    <button id="start-button">START RACE</button>
+
+    <div class="instructions">
+      <b>PC</b> — A/D or ←/→ to steer<br>
+      W / ↑ — Accelerate<br>
+      S / ↓ — Brake<br>
+      SPACE — Nitro
+    </div>
+
+  </div>
+
+  <!-- Game Over -->
+  <div id="game-over" class="screen hidden">
+
+    <div class="gameover-title">CRASHED!</div>
+
+    <div class="final-score">
+      DISTANCE
+      <strong id="final-distance">0</strong>
+      METERS
+    </div>
+
+    <button id="restart-button">RACE AGAIN</button>
+
+  </div>
+
+  <!-- Pause -->
+  <div id="pause-screen" class="screen hidden">
+
+    <div class="pause-title">PAUSED</div>
+
+    <button id="resume-button">RESUME</button>
+
+  </div>
+
+  <!-- Mobile Controls -->
+  <div id="mobile-controls">
+
+    <button id="left-button" class="control">◀</button>
+
+    <button id="brake-button" class="control small">
+      BRAKE
+    </button>
+
+    <button id="nitro-button" class="nitro">
+      N₂O
+    </button>
+
+    <button id="gas-button" class="control small">
+      GAS
+    </button>
+
+    <button id="right-button" class="control">▶</button>
+
+  </div>
+
+  <button id="pause-button">Ⅱ</button>
+
+  <script type="module" src="game.js"></script>
+
+</body>
+</html>
